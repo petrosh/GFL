@@ -14,7 +14,7 @@ var domSection = document.querySelector('main > section'),
     domSummary = domAppend({ tag: 'p', innerHTML: 'Monitor', class: 'summary' }),
     domEditor = document.createElement('div'),
     domCancel = domAppend({ tag: 'button', innerHTML: 'Cancel' }),
-    domSubmit = domAppend({ tag: 'button', innerHTML: 'Save leagues' }),
+    domSubmit = domAppend({ tag: 'button', innerHTML: 'Save file' }),
     domValid = document.createElement('span'),
     domTable = domAppend({ tag: 'table', class: 'leagues' }),
     domXrate = document.querySelector('footer > small'),
@@ -248,7 +248,7 @@ function repoGet() {
 
 function pullsMade() {
   apiCall({
-    url: repoAPI + '/pulls',
+    url: "https://api.github.com/repos/" + repoContent.parent.full_name + '/pulls',
     data: '{"base":"teams"}',
     cb: function () {
       pullsArray = this;
