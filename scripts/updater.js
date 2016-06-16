@@ -359,7 +359,7 @@ function headMasterParent() {
         sessionStorage.setItem('masterParentRef', this.object.sha);
         domAppend({ tag: 'li', parent: domUlParent, innerHTML: 'repository: <a href="http://' + repoContent.parent.owner.login + '.github.io/' + repoContent.parent.name + '">' + repoContent.parent.full_name + '</a>' });
         domAppend({ tag: 'li', parent: domUlParent, innerHTML: '<em>master</em> ref: ' + sessionStorage.masterParentRef.slice(0,7) });
-        if (sessionStorage.masterRef == sessionStorage.masterParentRef || !expired(sessionStorage.masterUpdated)) {
+        if (sessionStorage.masterRef == sessionStorage.masterParentRef || !expire(sessionStorage.masterUpdated)) {
           loadSetup();
         }else{
           domAppend({ tag: 'li', parent: domUlRepo, innerHTML: '<em>master</em> ref: starting update from ' + sessionStorage.masterParentRef.slice(0,7) });
