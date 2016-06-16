@@ -61,7 +61,6 @@ function pullTeam(){
     data: '{"title": "team changed", "head": "' + repoOwner + ':teams", "base": "teams", "body": "Please pull this in!" }',
     cb: function() {
       pullResponse = this;
-      sessionStorage.setItem('teamsRef', this.commit.sha);
       domAlert('pull requested #' + this.number + ': <a href="' + repoHome + '">proceed</a>');
     }
   });
